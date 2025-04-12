@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
     return (
-        <div className="w-full flex justify-between items-center pb-4 font-[family-name:var(--font-geist-mono)]">
+        <div className="w-full flex justify-between items-center pt-12 pb-4 font-[family-name:var(--font-geist-mono)]">
             <div className="flex items-center gap-2">
                 <a
                     href="#"
