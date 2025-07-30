@@ -1,3 +1,4 @@
+"use client";
 import Heading from "@/app/(marketing)/_component/Heading";
 import Footer from "@/app/(marketing)/_component/Footer";
 import Hero from "@/app/(marketing)/_component/Hero";
