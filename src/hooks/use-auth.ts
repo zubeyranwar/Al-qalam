@@ -3,7 +3,6 @@ import {useConvexAuth, useQuery} from "convex/react";
 import {api} from "../../convex/_generated/api";
 
 export const useAuth = () => {
-    const {isAuthenticated, isLoading} = useConvexAuth()
     const session = useQuery(api.auth.getSession)
     const login = async () => {
         try {
@@ -29,8 +28,6 @@ export const useAuth = () => {
 
     return {
         session,
-        isAuthenticated,
-        isLoading,
         login,
         logout,
     }
