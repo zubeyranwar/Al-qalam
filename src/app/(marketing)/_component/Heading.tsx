@@ -4,19 +4,14 @@ import Image from "next/image";
 import {Button} from "@/components/ui/button";
 import ThemeSwitcher from "@/components/theme-switcher";
 import Spinner from "@/components/spinner";
-import {authClient} from "@/lib/auth-client";
 import {useRouter} from "next/navigation";
 import {useAuth} from "@/hooks/use-auth";
 import UserButton from "@/components/user-button";
+import {Authenticated, AuthLoading, Unauthenticated} from "convex/react";
 
 export default function Heading() {
     const router = useRouter()
-    const {login} = useAuth()
-
-    const {
-        data: session,
-        isPending,
-    } = authClient.useSession()
+    const {login,session} = useAuth()
 
     const handleLogin = async () => {
         const response = await login()
@@ -26,23 +21,19 @@ export default function Heading() {
     }
 
     const renderUserButton = () => {
-        if (isPending) {
-            return <Spinner/>
-        }
-
-        if (!session?.user && !isPending) {
-            return (
-                <>
-                    <Button variant="ghost" onClick={handleLogin}>Login</Button>
-                    <Button onClick={handleLogin}>Register Now</Button>
-                </>
-            )
-        }
-
         return (
             <>
-                <Button variant="secondary" onClick={() => router.push("/documents")}>Enter Al Qalam</Button>
-                <UserButton session={session}/>
+                <AuthLoading>
+                    <Spinner />
+                </AuthLoading>
+                <Unauthenticated>
+                    <Button variant="ghost" onClick={handleLogin}>Login</Button>
+                    <Button onClick={handleLogin}>Register Now</Button>
+                </Unauthenticated>
+                <Authenticated>
+                    <Button variant="secondary" onClick={() => router.push("/documents")}>Enter Al Qalam</Button>
+                    <UserButton session={session}/>
+                </Authenticated>
             </>
         )
     }

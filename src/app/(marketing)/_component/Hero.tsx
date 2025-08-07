@@ -6,10 +6,11 @@ import {ArrowRightIcon} from "lucide-react";
 import Image from "next/image";
 import {useRouter} from "next/navigation";
 import {useAuth} from "@/hooks/use-auth";
+import {Authenticated, AuthLoading, Unauthenticated} from "convex/react";
 
 export default function Hero() {
     const router = useRouter()
-    const {login, isAuthenticated, isLoading} = useAuth()
+    const {login} = useAuth()
 
     const handleLogin = async () => {
         const response = await login()
@@ -19,15 +20,23 @@ export default function Hero() {
     }
 
     const renderEnterToDocumentButton = () => {
-        if (isLoading) return <Spinner/>
-
-        if (isAuthenticated) return <Button onClick={() => router.push("/documents")}>Enter Al Qalam</Button>
-
         return (
-            <Button onClick={handleLogin}>
-                Register Now
-                <ArrowRightIcon className="mr-2"/>
-            </Button>
+            <>
+                <AuthLoading>
+                    <Button>
+                        <Spinner/>
+                    </Button>
+                </AuthLoading>
+                <Unauthenticated>
+                    <Button onClick={handleLogin}>
+                        Register Now
+                        <ArrowRightIcon className="mr-2"/>
+                    </Button>
+                </Unauthenticated>
+                <Authenticated>
+                    <Button onClick={() => router.push("/documents")}>Enter Al Qalam</Button>
+                </Authenticated>
+            </>
         )
     }
 

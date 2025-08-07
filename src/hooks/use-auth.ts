@@ -1,8 +1,9 @@
 import {authClient} from "@/lib/auth-client";
+import {useConvexAuth, useQuery} from "convex/react";
+import {api} from "../../convex/_generated/api";
 
 export const useAuth = () => {
-    const {data: session, isPending: isLoading} = authClient.useSession()
-    const isAuthenticated = !!session?.user
+    const session = useQuery(api.auth.getSession)
     const login = async () => {
         try {
             return await authClient.signIn.social({
@@ -27,8 +28,6 @@ export const useAuth = () => {
 
     return {
         session,
-        isAuthenticated,
-        isLoading,
         login,
         logout,
     }
