@@ -1,3 +1,5 @@
+<img width="1898" height="922" alt="image" src="https://github.com/user-attachments/assets/5b9537a2-6bdb-4144-935b-f174e031b385" />
+
 # Al Qalam
 
 This project is a simplified clone of the popular productivity application, Notion. It's designed to replicate some of the core features of Notion, providing a platform where users can create, edit, and organize their notes in a flexible and intuitive interface.
