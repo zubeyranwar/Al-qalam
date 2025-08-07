@@ -59,13 +59,17 @@ npm install
 
 ```
 # Deployment used by `npx convex dev`
-NEXT_PUBLIC_CONVEX_URL=
+CONVEX_DEPLOYMENT=dev:hearty,,,,,
 
-NEXT_PUBLIC_GITHUB_CLIENT_ID=
-NEXT_PUBLIC_GITHUB_CLIENT_SECRET=
+NEXT_PUBLIC_CONVEX_URL=https://hearty--------.cloud
+NEXT_PUBLIC_CONVEX_SITE_URL=https://hearty-------.convex.site
+NEXT_PUBLIC_GITHUB_CLIENT_ID="your github client id"
+NEXT_PUBLIC_GITHUB_CLIENT_SECRET="secret"
+NEXT_PUBLIC_BETTER_AUTH_SECRET="secret"
 
-EDGE_STORE_ACCESS_KEY=
-EDGE_STORE_SECRET_KEY=
+BETTER_AUTH_SECRET="secret"
+EDGE_STORE_ACCESS_KEY="secret"
+EDGE_STORE_SECRET_KEY="secret"
 ```
 
 4. Run Convex
