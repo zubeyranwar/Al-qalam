@@ -4,8 +4,10 @@ import {betterAuth} from "better-auth";
 import {betterAuthComponent} from "../../convex/auth";
 import {type GenericCtx} from "../../convex/_generated/server";
 
-export const createAuth = (ctx: GenericCtx) =>
-    betterAuth({
+export const createAuth = (ctx: GenericCtx) => {
+    console.log({trustedOrigins: process.env.VERCEL_URL!});
+
+    return betterAuth({
         database: convexAdapter(ctx, betterAuthComponent),
         trustedOrigins: [process.env.VERCEL_URL!, "https://al-qalam-omega.vercel.app"],
         socialProviders: {
@@ -18,3 +20,6 @@ export const createAuth = (ctx: GenericCtx) =>
             convex(),
         ],
     });
+
+}
+
