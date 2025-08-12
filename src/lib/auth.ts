@@ -7,7 +7,7 @@ import {type GenericCtx} from "../../convex/_generated/server";
 export const createAuth = (ctx: GenericCtx) =>
     betterAuth({
         database: convexAdapter(ctx, betterAuthComponent),
-        trustedOrigins: [process.env.NEXT_PUBLIC_SITE_URL!, "http://locahost:3000"],
+        trustedOrigins: [process.env.VERCEL_URL!, "http://locahost:3000"],
         socialProviders: {
             github: {
                 clientId: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID!,
