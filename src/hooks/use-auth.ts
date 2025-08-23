@@ -1,5 +1,5 @@
 import {authClient} from "@/lib/auth-client";
-import {useConvexAuth, useQuery} from "convex/react";
+import {useQuery} from "convex/react";
 import {api} from "../../convex/_generated/api";
 
 export const useAuth = () => {
@@ -8,7 +8,8 @@ export const useAuth = () => {
         try {
             return await authClient.signIn.social({
                 provider: "github",
-                callbackURL: "/documents",
+                callbackURL: "/callback/github",
+                // redirectTo: "/documents",
                 errorCallbackURL: "/error",
                 disableRedirect: true,
             });
