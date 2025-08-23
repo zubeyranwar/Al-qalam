@@ -8,10 +8,7 @@ export const useAuth = () => {
         try {
             return await authClient.signIn.social({
                 provider: "github",
-                callbackURL: "/callback/github",
                 // redirectTo: "/documents",
-                errorCallbackURL: "/error",
-                disableRedirect: true,
             });
 
         } catch (error) {
