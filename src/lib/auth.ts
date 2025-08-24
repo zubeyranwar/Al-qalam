@@ -1,27 +1,30 @@
 import {convexAdapter} from "@convex-dev/better-auth";
 import {convex} from "@convex-dev/better-auth/plugins";
-import {betterAuth} from "better-auth";
+import {betterAuth, BetterAuthOptions} from "better-auth";
 import {betterAuthComponent} from "../../convex/auth";
 import {type GenericCtx} from "../../convex/_generated/server";
+import {requireEnv} from "@/lib/utils";
+
+const siteUrl = requireEnv("SITE_URL");
+
+const createOptions = (ctx: GenericCtx) => ({
+    baseURL: siteUrl,
+    database: convexAdapter(ctx, betterAuthComponent),
+    socialProviders: {
+        github: {
+            clientId: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID as string,
+            clientSecret: process.env.NEXT_PUBLIC_GITHUB_CLIENT_SECRET as string,
+        },
+    },
+}) satisfies BetterAuthOptions
 
 export const createAuth = (ctx: GenericCtx) => {
-    console.log({trustedOrigins: process.env.VERCEL_URL!});
+    const options = createOptions(ctx);
 
     return betterAuth({
-        baseURL: "https://al-qalam-omega.vercel.app",
-        database: convexAdapter(ctx, betterAuthComponent),
-        trustedOrigins: [process.env.VERCEL_URL!, "https://al-qalam-omega.vercel.app"],
-        socialProviders: {
-            github: {
-                clientId: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID!,
-                clientSecret: process.env.NEXT_PUBLIC_GITHUB_CLIENT_SECRET!,
-                redirectURI: "https://al-qalam-omega.vercel.app/api/auth/callback/github",
-            }
-        },
+        ...options,
         plugins: [
-            convex(),
+            convex({options}),
         ],
     });
-
 }
-
