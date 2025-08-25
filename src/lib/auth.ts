@@ -10,6 +10,7 @@ const siteUrl = requireEnv("SITE_URL");
 const createOptions = (ctx: GenericCtx) => ({
     baseURL: siteUrl,
     database: convexAdapter(ctx, betterAuthComponent),
+    trustedOrigins: [siteUrl],
     socialProviders: {
         github: {
             clientId: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID as string,
