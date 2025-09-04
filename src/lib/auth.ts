@@ -5,14 +5,13 @@ import { convexAdapter } from "@convex-dev/better-auth";
 import { betterAuthComponent } from "../../convex/auth";
 import { GenericCtx } from "../../convex/_generated/server";
 
-const baseURL: string | undefined =
-  process.env.VERCEL === "1"
-    ? process.env.VERCEL_ENV === "production"
-      ? process.env.BETTER_AUTH_URL
-      : process.env.VERCEL_ENV === "preview"
-        ? `https://${process.env.VERCEL_URL}`
-        : undefined
-    : undefined;
+const baseURL =
+  process.env.BETTER_AUTH_URL ||
+  (process.env.VERCEL === "1"
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000");
+
+console.log({ baseURL });
 
 const createOptions = (ctx: GenericCtx) =>
   ({
@@ -21,7 +20,7 @@ const createOptions = (ctx: GenericCtx) =>
     database: convexAdapter(ctx, betterAuthComponent),
     account: {
       accountLinking: {
-        trustedProviders: ["google", "github", "demo-app"],
+        trustedProviders: ["github"],
       },
     },
     socialProviders: {
@@ -30,7 +29,7 @@ const createOptions = (ctx: GenericCtx) =>
         clientSecret: process.env.GITHUB_CLIENT_SECRET || "",
       },
     },
-    plugins: [oAuthProxy(), bearer(), oneTap()],
+    plugins: [oAuthProxy()],
   }) satisfies BetterAuthOptions;
 
 export const createAuth = (ctx: GenericCtx) => {
