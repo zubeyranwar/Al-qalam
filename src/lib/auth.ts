@@ -31,17 +31,6 @@ const createOptions = (ctx: GenericCtx) =>
       },
     },
     plugins: [oAuthProxy(), bearer(), oneTap()],
-    trustedOrigins: Array.from(
-      new Set([
-        process.env.BETTER_AUTH_URL!,
-        "https://al-qalam-ashy.vercel.app",
-        ...(process.env.VERCEL_URL
-          ? [`https://${process.env.VERCEL_URL}`]
-          : []),
-        "http://localhost:3000",
-        "https://localhost:3000",
-      ]),
-    ),
   }) satisfies BetterAuthOptions;
 
 export const createAuth = (ctx: GenericCtx) => {
