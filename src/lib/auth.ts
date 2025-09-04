@@ -3,7 +3,6 @@ import {convex} from "@convex-dev/better-auth/plugins";
 import {betterAuth, BetterAuthOptions} from "better-auth";
 import {betterAuthComponent} from "../../convex/auth";
 import {type GenericCtx} from "../../convex/_generated/server";
-import {requireEnv} from "@/lib/utils";
 
 const ensureProtocol = (url: string) => {
     if (url.startsWith("http://") || url.startsWith("https://")) return url;
@@ -14,21 +13,23 @@ const trimTrailingSlash = (url: string) => url.replace(/\/$/, "");
 
 const resolveBaseUrl = () => {
     const explicit = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL;
-    const vercelUrl = process.env.VERCEL_URL;
-    const origin = explicit ?? (vercelUrl ? ensureProtocol(vercelUrl) : "http://localhost:3000");
-    return trimTrailingSlash(origin);
+    if (process.env.NODE_ENV === "production") {
+        if (!explicit) {
+            throw new Error("SITE_URL (or NEXT_PUBLIC_SITE_URL) must be set in production");
+        }
+        return trimTrailingSlash(ensureProtocol(explicit));
+    }
+    // Development fallback
+    return trimTrailingSlash(explicit ? ensureProtocol(explicit) : "http://localhost:3000");
 };
 
-const siteUrl = resolveBaseUrl();
+const siteUrl = "https://al-qalam-ashy.vercel.app";
 
 const createOptions = (ctx: GenericCtx) => ({
     baseURL: siteUrl,
     database: convexAdapter(ctx, betterAuthComponent),
     trustedOrigins: Array.from(new Set([
         siteUrl,
-        ...(
-            process.env.VERCEL_URL ? [trimTrailingSlash(ensureProtocol(process.env.VERCEL_URL))] : []
-        ),
         "http://localhost:3000",
         "https://localhost:3000",
     ])),
