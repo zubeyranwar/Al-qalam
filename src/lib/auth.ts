@@ -31,7 +31,7 @@ const createOptions = (ctx: GenericCtx) =>
       },
     },
     plugins: [oAuthProxy(), bearer(), oneTap()],
-    trustedOrigins: ["exp://", process.env.SITE_URL!],
+    trustedOrigins: ["exp://", process.env.BETTER_AUTH_URL!],
   }) satisfies BetterAuthOptions;
 
 export const createAuth = (ctx: GenericCtx) => {
