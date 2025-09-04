@@ -18,6 +18,7 @@ export default function Hero() {
             router.push(response.data.url)
         }
     }
+    console.log(process.env.NEXT_PUBLIC_SITE_URL)
 
     const renderEnterToDocumentButton = () => {
         return (

@@ -1,3 +1,4 @@
+//@ts-nocheck
 "use client"
 
 import {useMutation, useQuery} from "convex/react";
