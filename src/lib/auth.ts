@@ -27,9 +27,9 @@ const createOptions = (ctx: GenericCtx) =>
       github: {
         clientId: process.env.GITHUB_CLIENT_ID || "",
         clientSecret: process.env.GITHUB_CLIENT_SECRET || "",
+        redirectURI: `https://al-qalam-ashy.vercel.app/api/auth/callback/github`,
       },
     },
-    plugins: [oAuthProxy()],
   }) satisfies BetterAuthOptions;
 
 export const createAuth = (ctx: GenericCtx) => {
