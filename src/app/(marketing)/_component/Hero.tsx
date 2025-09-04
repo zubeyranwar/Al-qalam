@@ -23,9 +23,7 @@ export default function Hero() {
         return (
             <>
                 <AuthLoading>
-                    <Button>
-                        <Spinner/>
-                    </Button>
+                    <Spinner/>
                 </AuthLoading>
                 <Unauthenticated>
                     <Button onClick={handleLogin}>
