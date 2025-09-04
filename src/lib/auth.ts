@@ -1,5 +1,5 @@
 import { betterAuth, BetterAuthOptions } from "better-auth";
-import { bearer, oneTap, oAuthProxy } from "better-auth/plugins";
+import { bearer, oneTap, oAuthProxy, anonymous } from "better-auth/plugins";
 import { convex } from "@convex-dev/better-auth/plugins";
 import { convexAdapter } from "@convex-dev/better-auth";
 import { betterAuthComponent } from "../../convex/auth";
@@ -30,6 +30,7 @@ const createOptions = (ctx: GenericCtx) =>
         redirectURI: `https://al-qalam-ashy.vercel.app/api/auth/callback/github`,
       },
     },
+    plugins: [anonymous()],
   }) satisfies BetterAuthOptions;
 
 export const createAuth = (ctx: GenericCtx) => {
