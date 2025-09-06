@@ -6,33 +6,30 @@ import {use, useMemo} from "react";
 import dynamic from "next/dynamic";
 import {Cover} from "@/app/(main)/_components/cover";
 import {Skeleton} from "@/components/ui/skeleton";
-import {Id} from "../../../../../../convex/_generated/dataModel";
 import {Toolbar} from "@/app/(main)/_components/toolbar";
+import {Id} from "../../../../../../convex/_generated/dataModel";
 
-interface DocumentIdPageProps {
-    params: {
-        documentId: Id<"documents">;
-    };
-}
+type DocumentIdPageProps = Promise<{ documentId: string }>
 
-export default function DocumentIdPage({params}: DocumentIdPageProps) {
+
+export default function DocumentIdPage(props: { params: DocumentIdPageProps }) {
     const Editor = useMemo(
         () => dynamic(() => import("../../../_components/editor"), {ssr: false}),
         [],
     );
-    const resolvedParams = use(params);
+    const params = use(props.params);
+    const documentId = params.documentId;
 
     const document = useQuery(api.documents.getDocumentById, {
-        documentId: resolvedParams.documentId
+        documentId: documentId as Id<"documents">
     })
     console.log({baby: document})
 
-    console.log({resolvedParams})
     const update = useMutation(api.documents.updateDocument)
 
     const onChange = (content: string) => {
         update({
-            id: document._id,
+            id: documentId as Id<"documents">,
             content
         })
     }

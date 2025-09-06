@@ -8,8 +8,8 @@ import "@blocknote/mantine/style.css";
 
 interface EditorProps {
     onChange?: (value: string) => void | undefined;
-    initialContent?: string;
-    editable?: boolean;
+    initialContent?: PartialBlock | string | undefined;
+    editable?: boolean | undefined;
 }
 
 export default function Editor({
@@ -18,6 +18,7 @@ export default function Editor({
     const {resolvedTheme} = useTheme()
 
     const editor: BlockNoteEditor = useCreateBlockNote({
+        // @ts-ignore
         initialContent: initialContent ? JSON.parse(initialContent) as PartialBlock : undefined,
     })
 
