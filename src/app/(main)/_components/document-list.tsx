@@ -52,13 +52,15 @@ export default function DocumentList({
         )
     }
 
+    console.log({expanded, level})
+
     return (
         <>
             <p
                 style={{paddingLeft: level ? `${level * 12 + 25}px` : undefined}}
                 className={cn(
                     "hidden text-sm font-medium text-muted-foreground/80",
-                    expanded && "last:block",
+                    expanded || level !== 0 && "last:block",
                     level === 0 && "hidden",
                 )}
             >

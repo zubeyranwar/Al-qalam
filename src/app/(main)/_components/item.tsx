@@ -29,7 +29,6 @@ const Item = ({
                   isSearch = false,
                   onClick,
                   id,
-                  documentIcon,
                   expanded,
                   onExpand,
                   active,
@@ -96,11 +95,9 @@ const Item = ({
                 </div>
             )}
 
-            {documentIcon ? (
-                <div className="mr-2 shrink-0 text-[1.125rem]">{documentIcon}</div>
-            ) : (
-                <Icon className="w-5 h-5"/>
-            )}
+
+            <Icon className="w-5 h--5 shrink-0"/>
+
 
             <span className="truncate">{label}</span>
 

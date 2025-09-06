@@ -13,6 +13,7 @@ export const createAuth = (ctx: GenericCtx) =>
                 clientSecret: process.env.NEXT_PUBLIC_GITHUB_CLIENT_SECRET!,
             }
         },
+        trustedOrigins: [process.env.BETTER_AUTH_URL!],
         plugins: [
             convex(),
         ],
