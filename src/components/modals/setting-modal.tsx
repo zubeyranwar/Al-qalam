@@ -64,7 +64,7 @@ export const SettingModal = () => {
                         </span>
                         </div>
                         <Button
-                            variant="destructive"
+                            variant="danger"
                             onClick={onDeleteAllDocument}
                         >
                             Delete all

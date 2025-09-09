@@ -56,7 +56,7 @@ export default function DocumentIdPage(props: { params: DocumentIdPageProps }) {
 
     console.log({document})
     return (
-        <div className="pb-40">
+        <div className="pb-40 bg-white dark:bg-inherit min-h-screen">
             <Cover
                 url={document.coverImage}
             />

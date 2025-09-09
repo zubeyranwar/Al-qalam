@@ -43,7 +43,7 @@ const DocumentPreviewPage = () => {
     }
 
     return (
-        <div className="pb-40">
+        <div className="pb-40 bg-white dark:bg-inherit min-h-screen">
             <Cover preview url={document?.coverImage}/>
             <div className="mx-auto md:w-3xl lg:max-w-4xl">
                 <Toolbar preview initialData={document}/>

@@ -122,7 +122,7 @@ export default function Navigation() {
             <aside
                 ref={sidebarRef}
                 className={cn(
-                    "group/sidebar relative h-full flex flex-col w-60 bg-secondary overflow-y-auto",
+                    "group/sidebar relative h-full flex flex-col w-60 bg-sidebar-accent overflow-y-auto",
                     isResetting && "transition-all duration-300 ease-in-out",
                     isMobile && "w-0"
                 )}>

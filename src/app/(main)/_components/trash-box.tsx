@@ -88,7 +88,7 @@ export default function TrashBox() {
                         aria-label="Document"
                     >
                         <span className="truncate pl-2">{document.title}</span>
-                        <div className="flex items-center">
+                        <div className="flex items-center gap-2">
                             <button
                                 onClick={(event) => onRestore({event, documentId: document._id})}
                                 className="rounded-sm p-2 hover:accent-neutral-200 dark:hover:bg-neutral-600"

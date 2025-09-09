@@ -11,7 +11,7 @@ import {Authenticated, AuthLoading, Unauthenticated} from "convex/react";
 
 export default function Heading() {
     const router = useRouter()
-    const {login,session} = useAuth()
+    const {login, session} = useAuth()
 
     const handleLogin = async () => {
         const response = await login()
@@ -24,14 +24,14 @@ export default function Heading() {
         return (
             <>
                 <AuthLoading>
-                    <Spinner />
+                    <Spinner/>
                 </AuthLoading>
                 <Unauthenticated>
                     <Button variant="ghost" onClick={handleLogin}>Login</Button>
                     <Button onClick={handleLogin}>Register Now</Button>
                 </Unauthenticated>
                 <Authenticated>
-                    <Button variant="secondary" onClick={() => router.push("/documents")}>Enter Al Qalam</Button>
+                    <Button variant="primary" onClick={() => router.push("/documents")}>Enter Al Qalam</Button>
                     <UserButton session={session}/>
                 </Authenticated>
             </>
@@ -39,16 +39,17 @@ export default function Heading() {
     }
 
     return (
-        <div className="w-full flex items-center justify-between font-[family-name:var(--font-geist-mono)]">
+        <div className="w-full flex items-center justify-between font-[family-name:var(--font-geist-mono)] z-30">
             <div className="flex items-center gap-2">
                 <a
                     href="#"
                 >
+
                     <Image
-                        src="/pen.png"
+                        src="/pen-new.png"
                         alt="pen"
-                        width={25}
-                        height={25}
+                        width={40}
+                        height={40}
                         className="object-cover"
                     />
                 </a>

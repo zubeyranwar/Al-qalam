@@ -54,7 +54,7 @@ export const Cover = ({url, preview}: CoverProps) => {
                     className="absolute bottom-4 right-2 flex items-center gap-4 opacity-0 group-hover:opacity-100">
                     <Button
                         onClick={() => coverImage.onReplace(url)}
-                        variant="outline"
+                        variant="secondary"
                         className="text-xs text-muted-foreground"
                         size="sm"
                     >
@@ -62,7 +62,7 @@ export const Cover = ({url, preview}: CoverProps) => {
                         Change cover</Button>
                     <Button
                         onClick={onRemove}
-                        variant="outline"
+                        variant="danger"
                         className="text-xs text-muted-foreground"
                         size="sm"
                     >

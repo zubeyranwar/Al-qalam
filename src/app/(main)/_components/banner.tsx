@@ -47,24 +47,23 @@ export const Banner = ({documentId}: BannerProps) => {
         }
     }
     return (
-        <div className="w-full bg-rose-500 text-center text-sm p-2 text-white flex items-center gap-x-2 justify-center">
-            <p>
+        <div
+            className="w-full bg-secondary/90  text-center text-sm p-2 text-white flex items-center gap-x-2 justify-center">
+            <p className="text-lg">
                 This page is in trash.
             </p>
 
             <Button
                 onClick={onRestore}
                 size="sm"
-                variant="outline"
-                className="border-white bg-transparent hover:bg-primary/5 text-white hover:text-white p-1 px-2 h-auto font-normal"
+                variant="secondary"
             >
                 Restore page
             </Button>
             <Button
                 onClick={onRemove}
                 size="sm"
-                variant="outline"
-                className="border-white bg-transparent hover:bg-primary/5 text-white hover:text-white p-1 px-2 h-auto font-normal"
+                variant="danger"
             >
                 Delete forever
             </Button>

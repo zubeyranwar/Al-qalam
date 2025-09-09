@@ -1,6 +1,5 @@
 "use client"
 
-import {Metadata} from "next";
 import Image from "next/image";
 import {Button} from "@/components/ui/button";
 import {useAuth} from "@/hooks/use-auth";
@@ -16,9 +15,9 @@ export default function DocumentsPage() {
     const router = useRouter()
     const createDocument = useMutation(api.documents.createDocument)
 
-    const handleCreateDocument =  () => {
+    const handleCreateDocument = () => {
         const promise = createDocument({title: "Untitled"}).then(documentId => {
-           router.push(`${RouterPaths.DOCUMENTS}/${documentId}`)
+            router.push(`${RouterPaths.DOCUMENTS}/${documentId}`)
         })
 
         toast.promise(promise, {
@@ -32,14 +31,6 @@ export default function DocumentsPage() {
     return (
         <div className="w-full flex flex-col items-center justify-center min-h-screen dark:bg-[#1f1f1f]">
             <Image
-                src="/empty.png"
-                alt="empty"
-                height="300"
-                width="300"
-                priority
-                className="h-auto dark:hidden"
-            />
-            <Image
                 src="/empty-dark.png"
                 alt="empty"
                 height="300"
@@ -49,7 +40,7 @@ export default function DocumentsPage() {
             />
 
             <span className="mt-2 text-lg">Welcome to {session?.user?.name}&apos; qalam </span>
-            <Button className="mt-8" onClick={handleCreateDocument}>Create a note</Button>
+            <Button className="mt-8" variant="primary" onClick={handleCreateDocument}>Create a note</Button>
 
         </div>
     )
