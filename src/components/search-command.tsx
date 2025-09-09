@@ -24,9 +24,7 @@ export default function SearchCommand() {
     const toggle = useSearch((state) => state.toggle)
     const onClose = useSearch((state) => state.onClose)
 
-    const documents = useQuery(api.documents.getDocuments, {
-        parentDocument: undefined
-    })
+    const documents = useQuery(api.documents.getSearchDocuments)
 
     useEffect(() => {
         const down = (e: KeyboardEvent) => {
