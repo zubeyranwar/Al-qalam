@@ -97,17 +97,8 @@ export default function Footer() {
                 >
                     @zubeyranwar
                 </a>{' '}
-                +{' '}
-                <a
-                    href="https://www.youtube.com/@codewithantonio"
-                    target="_blank"
-                    className="font-semibold decoration-dotted transition hover:underline"
-                >
-                    @CodeWithAntonio
-                </a>
-                .
             </p>
-            <p className="text-center text-2xl">{`{◕ ◡ ◕}`}</p>
+            <p className="text-center text-2xl">{`ദ്ദി( • ᴗ - ) ✧`}</p>
         </footer>
     )
 }
