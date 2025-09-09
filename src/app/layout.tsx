@@ -1,21 +1,18 @@
 import type {Metadata} from "next";
-import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
 import {ThemeProvider} from "@/components/providers/theme-provider";
 import ConvexProviderClient from "@/components/providers/convex-provider";
 import {ModalProvider} from "@/components/providers/modal-provider";
 import {EdgeStoreProvider} from "@/lib/edgestore";
 import {Toaster} from "sonner";
+import {Inter} from "next/font/google";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
+const inter = Inter({
+    variable: "--font-inter",
     subsets: ["latin"],
-});
+    weight: ["100", "400"]
+})
 
 export const metadata: Metadata = {
     title: "Al Qalam",
@@ -23,10 +20,9 @@ export const metadata: Metadata = {
     icons: {
         icon: {
             media: "(prefers-color-scheme: dark)",
-            href: "/pen.png",
-            url: "/pen.png",
+            href: "/pen-new.png",
+            url: "/pen-new.png",
         }
-        //Add for dark (optional)
     }
 };
 
@@ -38,7 +34,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
         <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+            className={`${inter.className} antialiased bg-[#eee9db] dark:bg-[#222]`}
         >
         <ConvexProviderClient>
             <EdgeStoreProvider>
