@@ -5,6 +5,7 @@ import {MotionDiv} from '@/components/motion'
 import {AnimatedTitle} from '@/components/animated-title'
 import {useAuth} from "@/hooks/use-auth";
 import {useRouter} from "next/navigation";
+import Image from "next/image"
 
 function StartCTA() {
     return (
@@ -67,7 +68,7 @@ export default function Footer() {
                         </p>
                     </div>
                     <a
-                        className="flex items-center justify-end px-4 py-2 text-center font-semibold uppercase opacity-70 before:content-['@_'] after:content-['_*'] hover:opacity-100 sm:px-12 md:py-4 lg:text-2xl"
+                        className="hidden md:flex items-center justify-end px-4 py-2 text-center font-semibold uppercase opacity-70 before:content-['@_'] after:content-['_*'] hover:opacity-100 sm:px-12 md:py-4 lg:text-2xl"
                         href="https://github.com/zubeyranwar/Al-qalam"
                         target="_blank"
                     >
@@ -76,13 +77,29 @@ export default function Footer() {
                 </div>
                 <div className="flex-grow select-none overflow-hidden">
                     <AnimatedTitle
-                        className="-bottom-38 left-54 md:absolute md:-bottom-1/10 md:left-0 md:translate-x-0">
+                        className="-bottom-38 left-54 md:absolute md:-bottom-1/20 md:left-2 md:translate-x-0">
                         <p className="pr-6 font-display text-[clamp(2rem,15vw,12rem)] -tracking-widest dark:text-card-foreground">
                             Al Qalam
                         </p>
                     </AnimatedTitle>
+                    <MotionDiv
+                        className="relative ml-auto flex h-full w-1/3 -top-10  mt-0 flex-col justify-end max-md:hidden z-[9999]"
+                        initial={{y: '95%', x: '2%'}}
+                        whileInView={{y: '15%'}}
+                        transition={{type: 'spring', duration: 1.2}}
+                        viewport={{margin: '10% 0% 0% 0%'}}
+                    >
+                        <div className="z-40">
+                            <Image
+                                src="/pen-new.png"
+                                alt="Al qalam logo"
+                                fill
+                                className="object-contain z-[9999]"
+                            />
+                        </div>
+                    </MotionDiv>
                 </div>
-                <div className="absolute right-1/4 top-1/3 md:right-1/8 md:top-[30%]">
+                <div className="absolute right-1/8 top-1/3 md:right-1/3 md:top-[25%]">
                     <button className="rounded-full" onClick={handleLogin}>
                         <StartCTA/>
                     </button>
