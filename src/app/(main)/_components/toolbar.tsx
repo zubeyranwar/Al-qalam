@@ -61,7 +61,7 @@ export const Toolbar = ({initialData, preview}: ToolbarProps) => {
                     <Button
                         onClick={coverImage.onOpen}
                         className="text-xs text-muted-foreground"
-                        variant="outline"
+                        variant="ghost"
                         size="sm"
                     >
                         <ImageIcon className="mr-2 h-4 w-4"/>
