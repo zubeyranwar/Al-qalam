@@ -28,7 +28,7 @@ export default function Heading() {
                 </AuthLoading>
                 <Unauthenticated>
                     <Button variant="ghost" onClick={handleLogin}>Login</Button>
-                    <Button onClick={handleLogin}>Register Now</Button>
+                    <Button variant="primary" onClick={handleLogin}>Register Now</Button>
                 </Unauthenticated>
                 <Authenticated>
                     <Button variant="primary" onClick={() => router.push("/documents")}>Enter Al Qalam</Button>
