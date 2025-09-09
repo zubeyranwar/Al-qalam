@@ -83,7 +83,7 @@ export default function Footer() {
                     </AnimatedTitle>
                 </div>
                 <div className="absolute right-1/4 top-1/3 md:right-1/8 md:top-[30%]">
-                    <button className="rounded-full" onAuxClick={handleLogin}>
+                    <button className="rounded-full" onClick={handleLogin}>
                         <StartCTA/>
                     </button>
                 </div>
