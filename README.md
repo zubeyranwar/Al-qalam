@@ -1,3 +1,5 @@
+<img width="1676" height="900" alt="image" src="https://github.com/user-attachments/assets/a1e59ddb-8996-4905-b6f6-aa6519c54873" />
+
 # Al Qalam
 
 This project is a simplified clone of the popular productivity application, Notion. It's designed to replicate some of the core features of Notion, providing a platform where users can create, edit, and organize their notes in a flexible and intuitive interface.
@@ -6,7 +8,7 @@ It uses Convex as the backend, which is a real-time database that allows for ins
 
 ## Live
 
-Al Qalam - [https://zotion-app.vercel.app/](https://zotion-app.vercel.app/)
+Al Qalam - [https://zotion-app.vercel.app/](https://al-qalam-ashy.vercel.app/)](https://al-qalam-ashy.vercel.app/)
 
 ## Features
 
@@ -81,6 +83,10 @@ npx convex dev
 npm run dev
 ```
 
-## Acknowledgements
+Credits
+Logo, Illustrations are from Freepik, NicePNG
+Google Fonts - Inter
+
+## Acknowledgement
 
 [CodewithAntonio](https://www.youtube.com/@codewithantonio)
