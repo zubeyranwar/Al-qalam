@@ -9,6 +9,7 @@ import {Id} from "../../../../convex/_generated/dataModel";
 import {useEdgeStore} from "@/lib/edgestore";
 import {ImageIcon, X} from "lucide-react";
 import {cn} from "@/lib/utils";
+import {toast} from "sonner";
 
 interface CoverProps {
     url?: string;
@@ -31,9 +32,14 @@ export const Cover = ({url, preview}: CoverProps) => {
                 })
             }
 
-            removeCoverImage({
+            const promise = removeCoverImage({
                 id: params.documentId as Id<"documents">
             })
+            toast.promise(promise, {
+                loading: "Removing cover image...",
+                success: "Cover image is removed!",
+                error: "Failed to remove image.",
+            });
         } catch {
             return
         }
