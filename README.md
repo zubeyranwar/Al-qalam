@@ -8,7 +8,7 @@ It uses Convex as the backend, which is a real-time database that allows for ins
 
 ## Live
 
-Al Qalam - [https://zotion-app.vercel.app/](https://al-qalam-ashy.vercel.app/)](https://al-qalam-ashy.vercel.app/)
+Al Qalam - https://al-qalam-ashy.vercel.app
 
 ## Features
 
@@ -17,7 +17,6 @@ Al Qalam - [https://zotion-app.vercel.app/](https://al-qalam-ashy.vercel.app/)](
 - 📝 Notion-style editor for seamless note-taking
 - 📂 Infinite children documents for hierarchical organization
 - ➡️🔀⬅️ Expandable and fully collapsible sidebar for easy navigation
-- 🎨 Customizable icons for each document, updating in real-time
 - 🗑️ Trash can with soft delete and file recovery options
 
 **User Experience**
